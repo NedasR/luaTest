@@ -40,7 +40,7 @@ function love.draw()
   love.graphics.draw(sprite, x, y)
   love.graphics.draw(shurikenImg, px, py, rot, 0.25, 0.25,330/2, 340/2)
 end
- 
+
 function love.keypressed( key, scancode, isrepeat )
   if key == "space" then
     px = x
