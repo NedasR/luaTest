@@ -37,6 +37,6 @@ end
 
 function love.keypressed( key, scancode, isrepeat )
   if key == "space" then
-    createShuriken()
+    createShuriken(x, y)
   end
 end
