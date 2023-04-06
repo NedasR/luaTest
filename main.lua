@@ -1,8 +1,5 @@
 require("utility")
 
-
-local rot = 0
- 
 local x = 150
 local y = 150
 
@@ -13,10 +10,9 @@ local shurikens = {} -- table / list of all existing shurikens
 -- a shuriken will be encoded by a position { x, y } for example { 10, 20 }
 
 function love.update(dt)
-  rot = rot + 0.05
-  
   for _, shuriken in ipairs(shurikens) do -- for every shuriken in the list,
     shuriken.x = shuriken.x - shurikenSpeed -- modify shuriken x-axis coordinate
+    shuriken.rot = shuriken.rot + 0.05 -- modify shuriken rotation
   end
   
   -- remove all off-screen shurikens :
@@ -46,7 +42,7 @@ function love.draw()
   
   
   for _, shuriken in ipairs(shurikens) do -- for every shuriken in the list,
-    love.graphics.draw(shurikenImg, shuriken.x, shuriken.y, rot, 0.25, 0.25,330/2, 340/2)
+    love.graphics.draw(shurikenImg, shuriken.x, shuriken.y, shuriken.rot, 0.25, 0.25,330/2, 340/2)
   end
   
   --love.graphics.draw(shurikenImg, px, py, rot, 0.25, 0.25,330/2, 340/2)
@@ -54,7 +50,7 @@ end
 
 function love.keypressed( key, scancode, isrepeat )
   if key == "space" then
-    local newShuriken = { x = x, y = y } -- new shuriken at ogre's position
+    local newShuriken = { x = x, y = y, rot = 0 } -- new shuriken at ogre's position
     table.insert(shurikens, newShuriken)
   end
 end
