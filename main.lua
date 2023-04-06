@@ -26,11 +26,11 @@ function love.update(dt)
   rot = rot + 0.05
   
   for _, shuriken in ipairs(shurikens) do -- for every shuriken in the list,
-    shuriken[1] = shuriken[1] - shurikenSpeed -- modify shuriken x-axis coordinate
+    shuriken.x = shuriken.x - shurikenSpeed -- modify shuriken x-axis coordinate
   end
   
   -- remove all off-screen shurikens :
-  removeIf(shurikens, function (element) return element[1] < 0 end)
+  removeIf(shurikens, function (element) return element.x < 0 end)
   
   if love.keyboard.isDown('d') then
     x = x + characterSpeed
@@ -56,7 +56,7 @@ function love.draw()
   
   
   for _, shuriken in ipairs(shurikens) do -- for every shuriken in the list,
-    love.graphics.draw(shurikenImg, shuriken[1], shuriken[2], rot, 0.25, 0.25,330/2, 340/2)
+    love.graphics.draw(shurikenImg, shuriken.x, shuriken.y, rot, 0.25, 0.25,330/2, 340/2)
   end
   
   --love.graphics.draw(shurikenImg, px, py, rot, 0.25, 0.25,330/2, 340/2)
@@ -64,7 +64,7 @@ end
 
 function love.keypressed( key, scancode, isrepeat )
   if key == "space" then
-    local newShuriken = { x, y } -- new shuriken at ogre's position
+    local newShuriken = { x = x, y = y } -- new shuriken at ogre's position
     table.insert(shurikens, newShuriken)
   end
 end
