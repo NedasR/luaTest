@@ -6,7 +6,7 @@ function love.draw()
   end
 local rot = 0
  
- local x = 150
+local x = 150
 local y = 150
 
 local px = 150
@@ -31,19 +31,17 @@ function love.update(dt)
   end
 end
 
-   function love.load()
-    sprite = love.graphics.newImage("ogre.png")
-    spelso = love.graphics.newImage("shuriken.png")
-    
- end
- function love.draw()
-   
-    love.graphics.draw(sprite, x, y)
-    love.graphics.draw(spelso, px, py, rot, 0.25, 0.25,330/2, 340/2)
-   
- end
+function love.load()
+  sprite = love.graphics.newImage("ogre.png")
+  spelso = love.graphics.newImage("shuriken.png")
+end
+
+function love.draw()
+  love.graphics.draw(sprite, x, y)
+  love.graphics.draw(spelso, px, py, rot, 0.25, 0.25,330/2, 340/2)
+end
  
- function love.keypressed( key, scancode, isrepeat )
+function love.keypressed( key, scancode, isrepeat )
   if key == "space" then
     px = x
     py = y
