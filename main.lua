@@ -12,20 +12,22 @@ local y = 150
 local px = 150
 local py = 150
 
+local characterSpeed = 5
+
 function love.update(dt)
-  px = px - 2
+  px = px - characterSpeed
   rot = rot + 0.05
   if love.keyboard.isDown('d') then
-    x = x + 2
+    x = x + characterSpeed
   end
   if love.keyboard.isDown('s') then
-    y = y + 2
+    y = y + characterSpeed
   end
   if love.keyboard.isDown('a') then
-    x = x - 2
+    x = x - characterSpeed
   end
   if love.keyboard.isDown('w') then
-    y = y - 2
+    y = y - characterSpeed
   end
 end
 
