@@ -1,22 +1,11 @@
-function love.draw()
-    love.graphics.print("Hello World!", 300, 300)
-    love.graphics.print("tursty!", 300, 356)
-    love.graphics.print("Hello World!", 324, 655)
-    love.graphics.print("Hello World!", 540, 400)
-  end
-local rot = 0
- 
- local x = 150
-local y = 150
+require("shurikens")
 
-local px = 150
-local py = 150
+local x = 150
+local y = 150
 
 local characterSpeed = 5
 
-function love.update(dt)
-  px = px - characterSpeed
-  rot = rot + 0.05
+function handleMovement()
   if love.keyboard.isDown('d') then
     x = x + characterSpeed
   end
@@ -31,21 +20,23 @@ function love.update(dt)
   end
 end
 
-   function love.load()
-    sprite = love.graphics.newImage("ogre.png")
-    spelso = love.graphics.newImage("shuriken.png")
-    
- end
- function love.draw()
-   
-    love.graphics.draw(sprite, x, y)
-    love.graphics.draw(spelso, px, py, rot, 0.25, 0.25,330/2, 340/2)
-   
- end
- 
- function love.keypressed( key, scancode, isrepeat )
+function love.update(dt)
+  updateShurikens()
+  handleMovement()
+end
+
+function love.load()
+  sprite = love.graphics.newImage("ogre.png")
+  loadShuriken()
+end
+
+function love.draw()
+  love.graphics.draw(sprite, x, y)
+  drawShurikens()
+end
+
+function love.keypressed( key, scancode, isrepeat )
   if key == "space" then
-    px = x
-    py = y
+    createShuriken(x, y)
   end
 end
