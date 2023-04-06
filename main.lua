@@ -29,6 +29,9 @@ function love.update(dt)
     shuriken[1] = shuriken[1] - shurikenSpeed -- modify shuriken x-axis coordinate
   end
   
+  -- remove all off-screen shurikens :
+  removeIf(shurikens, function (element) return element[1] < 0 end)
+  
   if love.keyboard.isDown('d') then
     x = x + characterSpeed
   end
