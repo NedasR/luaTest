@@ -33,12 +33,12 @@ end
 
 function love.load()
   sprite = love.graphics.newImage("ogre.png")
-  spelso = love.graphics.newImage("shuriken.png")
+  shurikenImg = love.graphics.newImage("shuriken.png")
 end
 
 function love.draw()
   love.graphics.draw(sprite, x, y)
-  love.graphics.draw(spelso, px, py, rot, 0.25, 0.25,330/2, 340/2)
+  love.graphics.draw(shurikenImg, px, py, rot, 0.25, 0.25,330/2, 340/2)
 end
  
 function love.keypressed( key, scancode, isrepeat )
