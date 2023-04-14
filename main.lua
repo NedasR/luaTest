@@ -1,5 +1,5 @@
 require("shurikens")
-
+local Sound = require("sounds")
 local x = 150
 local y = 150
 
@@ -27,6 +27,7 @@ end
 
 function love.load()
   sprite = love.graphics.newImage("ogre.png")
+  Sound:inprint('gs', 'cannonshot.mp3', 'static')
   loadShuriken()
 end
 
@@ -37,6 +38,8 @@ end
 
 function love.keypressed( key, scancode, isrepeat )
   if key == "space" then
+  
+    Sound:play("gs")
     createShuriken(x, y)
   end
 end

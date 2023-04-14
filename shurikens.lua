@@ -26,6 +26,6 @@ function drawShurikens()
 end
 
 function createShuriken(x, y)
-  local newShuriken = { x = x, y = y, rot = 0 } -- new shuriken at ogre's position
+  local newShuriken = { x = x, y = y, rot = 0, s} -- new shuriken at ogre's position
   table.insert(shurikens, newShuriken)
 end
