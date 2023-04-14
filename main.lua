@@ -1,10 +1,10 @@
 require("shurikens")
+require("conf")
 local Sound = require("sounds")
 local x = 150
 local y = 150
 
 local characterSpeed = 5
-
 function handleMovement()
   if love.keyboard.isDown('d') then
     x = x + characterSpeed
@@ -23,6 +23,7 @@ end
 function love.update(dt)
   updateShurikens()
   handleMovement()
+  Sound:Update()
 end
 
 function love.load()

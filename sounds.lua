@@ -16,4 +16,13 @@ function Sound:play(id,channle)
   table.insert(Sound.active[channle],clone)
 end
 
+function Sound:Update()
+  for _, channle in pairs(Sound.active) do
+     if channle[1] ~= nil and not channle[1]:isPlaying() then
+       table.remove(channle,1)
+     end
+   end
+  end
+ 
+
 return Sound
